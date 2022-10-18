@@ -21,14 +21,19 @@ try
         i++;
     }
 }
+catch (DirectoryNotFoundException)
+{
+    Console.WriteLine("'{0}' not found", path);
+    return;
+}
 catch (UnauthorizedAccessException)
 {
     Console.WriteLine("Insufficient permissions");
     return;
 }
-catch (DirectoryNotFoundException)
+catch (FileNotFoundException)
 {
-    Console.WriteLine("'{0}' not found", path);
+    Console.WriteLine("Replacement cursor missing");
     return;
 }
 
